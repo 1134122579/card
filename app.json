@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/visitingCard/visitingCard",
     "pages/maplocation/location",
     "pages/morepage/more",

@@ -4,6 +4,38 @@ Page({
    * 页面的初始数据
    */
   data: {},
+  // 下载图片
+  bindseaveimage:function(){
+
+    wx.getImageInfo({
+      src: this.data.imagecode,//这里放你要下载图片的数组(多张) 或 字符串(一张) 下面代码不用改动
+      success: function (ret) {
+        var path = ret.path;
+        wx.saveImageToPhotosAlbum({
+          filePath: path,
+          success(result) {
+            console.log("成功");
+            wx.hideLoading();
+            wx.showToast({
+              title: '下载图片成功',
+              duration: 2000,
+              mask: true,
+            });
+          },
+          fail(result) {
+            console.log("失败,你取消了" + JSON.stringify(result))
+            console.log(path);
+            wx.openSetting({
+              success: (res) => {
+                console.log(res);
+              }
+            })
+          }
+        });
+      }
+ 
+    });
+  },
   // 添加手机通讯录联系人。
   addPhoneContact() {
     wx.addPhoneContact({

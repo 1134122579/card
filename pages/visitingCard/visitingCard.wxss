@@ -1,6 +1,13 @@
 /* pages/visitingCard/visitingCard.wxss */
 page{
+overflow: hidden;
+}
+.cardpage{  
+  height: 100%;
   background: #F1F4F9;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+  overflow-y: auto;
 }
 .card {
   width: 620rpx;
@@ -11,6 +18,7 @@ page{
   font-size: 30rpx;
   box-sizing: border-box;
   padding: 20rpx;
+  overflow: hidden;
 }
 .card-item{
   display: flex;
