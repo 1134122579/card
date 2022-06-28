@@ -1,0 +1,80 @@
+/* pages/visitingCard/visitingCard.wxss */
+page{
+  background: #F1F4F9;
+}
+.card {
+  width: 620rpx;
+  background: #fff;
+  margin: 40rpx auto;
+  box-shadow: 10rpx 10rpx 12rpx #D6DADC;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.card-item{
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+
+.card-left{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0rpx 10rpx 20rpx 20rpx;
+}
+.card-right{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0rpx 20rpx 20rpx 10rpx;
+}
+.header-image{
+    /* border-radius: 50%; */
+    width: 160rpx;
+    height: 160rpx;
+    display: block;
+}
+.title{
+  font-size: 40rpx;
+}
+.desc{
+  align-items: flex-start;
+}
+
+
+/* 用户信息 */
+.userinfo{
+  color: rgb(197, 197, 197);
+  font-size: 24rpx;
+  padding: 20rpx 0;
+}
+.info-li{
+    margin-top: 10rpx;
+} 
+.block-button{
+  width: 620rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.button-li{
+  text-align: center;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.wxlogo{
+  width: 90rpx;
+  height: 90rpx;
+  display: block;
+}
