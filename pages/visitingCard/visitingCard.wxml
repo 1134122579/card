@@ -82,7 +82,8 @@
 <van-popup show="{{ show }}"  custom-style="border-radius:20rpx" bind:close="onClose">
   <view class="" >
     <!-- <image mode="widthFix" src="/images/logo.png" bindtap="bindseaveimage"></image> -->
-    <image mode="widthFix" src="{{userInfo.mini_code}}"></image>
+    <image mode="widthFix" style="display: block; padding:0 20rpx;" src="{{userInfo.mini_code}}" catchlongpress="bindseaveimage"></image>
+    <view class="tag" > 长按图片保存</view>
   </view> 
 </van-popup>
 

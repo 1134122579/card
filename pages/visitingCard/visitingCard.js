@@ -20,14 +20,14 @@ Page({
       show: false,
     });
   },
-  loading(){
+  loading() {
     wx.showLoading({
-      title: '加载中',
-    })
+      title: "加载中",
+    });
     setTimeout(() => {
       wx.hideLoading({
-        success: (res) => {},
-      })
+        success: res => {},
+      });
     }, 1000);
   },
   // 下载图片
@@ -63,58 +63,60 @@ Page({
   // 添加手机通讯录联系人。
   addPhoneContact() {
     let userInfo = this.data.userInfo;
+    wx.addPhoneContact({
+      // nickName: "昵称",
+      // lastName: "姓",
+      firstName: userInfo.name,
+      // organization:'',
+      email: userInfo.email,
+      // remark: ,
+      url: userInfo.website,
+      title: userInfo.position,
+      addressStreet: userInfo.address,
+      mobilePhoneNumber: userInfo.mobile, //手机号
+      // weChatNumber: "wx123",
+      success: function () {
+        console.log("success");
+        wx.showToast({
+          title: "保存成功",
+          icon: "none",
+          mask: true,
+        });
+      },
+      fail: function () {
+        console.log("fail");
+        wx.showToast({
+          title: "保存失败，请从新保存",
+          icon: "none",
+          mask: true,
+        });
+        this.getphone();
+      },
+    });
+  },
+  getphone() {
+    let that = this;
     wx.getSetting({
-      success:res=>{
-        console.log(res)
-        if(res.authSetting['scope.addPhoneContact']){
-          wx.addPhoneContact({
-            // nickName: "昵称",
-            // lastName: "姓",
-            firstName: userInfo.name,
-            // organization:'',
-            email: userInfo.email,
-            // remark: ,
-            url: userInfo.website,
-            title: userInfo.position,
-            addressStreet: userInfo.address,
-            mobilePhoneNumber: userInfo.mobile, //手机号
-            // weChatNumber: "wx123",
-            success: function () {
-              console.log("success");
-              wx.showToast({
-                title: "保存成功",
-                icon: "none",
-                mask: true,
-              });
-            },
-            fail: function () {
-              console.log("fail");
-           
-              wx.showToast({
-                title: "保存失败，请从新保存",
-                icon: "none",
-                mask: true,
-              });
+      success: res => {
+        console.log(res);
+        if (res.authSetting["scope.addPhoneContact"]) {
+          this.addPhoneContact();
+        } else {
+          wx.openSetting({
+            success: res => {
+              console.log(res);
             },
           });
-        }else{
-          wx.openSetting({
-            success:res=>{
-              console.log(res)
-            }
-          })
         }
-      },fail(){
+      },
+      fail() {
         wx.openSetting({
-          success:res=>{
-            console.log(res)
-          }
-        })
-      }
-    })
-    return
-
-  
+          success: res => {
+            console.log(res);
+          },
+        });
+      },
+    });
   },
   getUserInfo() {
     Api.getUserInfo().then(res => {
@@ -154,7 +156,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.loading()
+    this.loading();
   },
 
   /**
@@ -182,7 +184,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: this.data.userInfo.name+"名片",
+      title: this.data.userInfo.name + "名片",
       path: "pages/visitingCard/visitingCard?id=" + this.data.userInfo.id,
       success: function (res) {
         console.log("成功", res);

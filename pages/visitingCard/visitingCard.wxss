@@ -102,3 +102,10 @@ overflow: hidden;
   display: block;
   margin-bottom: 10rpx;
 }
+.tag{
+  text-align: center;
+  padding: 16rpx;
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+  color: #666666;
+}
