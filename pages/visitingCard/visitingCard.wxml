@@ -3,64 +3,86 @@
     <!-- 头像 -->
     <view class="card-item">
       <view class="card-left">
-        <image class="header-image" src="/images/cathome.png"></image>
+        <image class="header-image" mode="widthFix" src="/images/logo.png"></image>
       </view>
-      <view class="card-right">
-        某某某某
+      <view class="card-right name">
+        {{userInfo.name}}
       </view>
     </view>
     <!-- 简介 -->
-    <view class="card-item desc">
-      <view class="card-left title">
-        某某某某某某某某某某某某某某某某某某某某某某某某
+    <view class="card-item dep">
+      <view class="card-left ">
+        <image class="header-image" mode="widthFix" src="/images/gsmc.png"></image>
       </view>
-      <view class="card-right">
-        某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某某
+      <view class="card-right ">
+        <view>
+          {{userInfo.department}}
+        </view>
+        <view>
+          {{userInfo.position}}
+        </view>
       </view>
     </view>
     <!-- 用户信息 -->
     <view class="userinfo">
       <view class="info-li">
-        地址：地址地址地址地址地址地址地址地址
+        工号：{{userInfo.job_no}}
       </view>
       <view class="info-li">
-        电话：18438627291
+        电话：{{userInfo.tel_phone}}
       </view>
       <view class="info-li">
-        手机：115451841
+        手机：{{userInfo.mobile}}
       </view>
       <view class="info-li">
-        邮箱：115451841
+        邮箱：{{userInfo.email}}
       </view>
       <view class="info-li">
-        客服电话：115451841
+        地址：{{userInfo.address}}
       </view>
-      <view class="info-li">
-        网址：115451841
+      <view class="flexastart">
+        <view class="info-li">
+          热线电话：{{userInfo.service_phone}}
+        </view>
+        <view class="info-li">
+          网址：{{userInfo.website}}
+        </view>
       </view>
     </view>
   </view>
   <view class="block-button">
     <label for="">
       <view class="button-li">
-        <image class="wxlogo" src="/images/wxlogo.png"></image>
+        <image class="wxlogo" src="/images/wx.png"></image>
         <view>
           微信分享
         </view>
       </view>
       <button open-type="share"></button>
     </label>
-    <view class="button-li">
-      <image class="wxlogo" src="/images/wxlogo.png"></image>
+    <view class="button-li" bindtap="oncode">
+      <image class="wxlogo" src="/images/code.png"></image>
       <view>
         微信分享
       </view>
     </view>
-    <view class="button-li" bindtap="addPhoneContact">
-      <image class="wxlogo" src="/images/wxlogo.png"></image>
+    <label for="">
+      <view class="button-li" >
+      <image class="wxlogo" src="/images/lxfs.png"></image>
       <view>
         保存通讯录
       </view>
     </view>
+    <button bindtap="addPhoneContact"></button>
+    </label>
+ 
   </view>
 </view>
+
+<van-popup show="{{ show }}"  custom-style="border-radius:20rpx" bind:close="onClose">
+  <view class="" >
+    <!-- <image mode="widthFix" src="/images/logo.png" bindtap="bindseaveimage"></image> -->
+    <image mode="widthFix" src="{{userInfo.mini_code}}"></image>
+  </view> 
+</van-popup>
+

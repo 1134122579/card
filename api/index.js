@@ -27,6 +27,15 @@ export default {
       isThree: false,
     });
   },
+  getCardInfo(params) {
+    return fly({
+      url: `getCardInfo`,
+      method: "get",
+      params,
+      loading: false,
+      isThree: false,
+    });
+  },
   ckeckToken(params) {
     return fly({
       url: `checkToken`,

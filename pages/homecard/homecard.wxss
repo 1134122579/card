@@ -1,0 +1,25 @@
+.card{
+  width: 100%;
+  height: 100%;
+  background: #094BF1;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card-bg{
+  margin: 0 auto;
+  margin-top: 140rpx;
+  width: 96%;
+  margin-bottom: 80rpx;
+  display: block;
+}
+.gocard{
+  width: 80%;
+  border-radius: 40px;
+  text-align: center;
+  margin: 0 auto;
+}

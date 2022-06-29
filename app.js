@@ -176,6 +176,7 @@ App({
         }
       }
       let res = wx.getSystemInfoSync();
+      console.log(res)
       let statusBarHeight = res.statusBarHeight,
         navTop = menuButtonObject.top, //胶囊按钮与顶部的距离
         // navHeight =

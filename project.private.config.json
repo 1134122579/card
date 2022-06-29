@@ -23,6 +23,13 @@
           "name": "详情",
           "pathName": "pages/catdetail/catdetail",
           "query": "user_id=38&cat_id=180",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "名片",
+          "pathName": "pages/visitingCard/visitingCard",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

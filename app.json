@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/home/home",
+    "pages/homecard/homecard",
     "pages/visitingCard/visitingCard",
     "pages/maplocation/location",
     "pages/morepage/more",
@@ -56,7 +56,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#F1F4F9",
     "navigationBarTitleText": "小程序",
     "navigationBarTextStyle": "black"
   },

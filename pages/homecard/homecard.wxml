@@ -1,0 +1,7 @@
+<view class="card">
+  <image class="card-bg" style="margin-top:{{navHeight}}px" mode="widthFix" bindload="bindimageload"  src="/images/homebg.png"></image>
+  <view class="gocard">
+    <!-- 立即登录 -->
+    <van-button plain  open-type="getPhoneNumber" bind:getphonenumber="getPhone"  color="#3897FF" block round>立即登录</van-button>
+  </view>
+</view>
