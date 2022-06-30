@@ -32,6 +32,7 @@ Page({
   },
   // 下载图片
   bindseaveimage: function () {
+    let that=this
     wx.getImageInfo({
       src: this.data.userInfo.mini_code, //这里放你要下载图片的数组(多张) 或 字符串(一张) 下面代码不用改动
       success: function (ret) {
@@ -50,11 +51,47 @@ Page({
           fail(result) {
             console.log("失败,你取消了" + JSON.stringify(result));
             console.log(path);
-            wx.openSetting({
-              success: res => {
-                console.log(res);
-              },
-            });
+            that.isimageposmiss()
+            // wx.openSetting({
+            //   success: res => {
+            //     console.log(res);
+            //   },
+            // });
+          },
+        });
+      },
+    });
+  },
+  // 检测是否有权限获取图片
+  isimageposmiss(){
+    let that = this;
+    wx.getSetting({
+      success: res => {
+        console.log(res);
+        if (res.authSetting["scope.writePhotosAlbum"]) {
+          // this.addPhoneContact();
+          return true
+        } else {
+          wx.showModal({
+            title: "提示",
+            content: "请授权获取相册",
+            success: function (res) {
+              if (res.confirm == false) {
+                return false;
+              }
+              wx.openSetting({
+                success: res => {
+                  console.log(res);
+                },
+              });
+            },
+          });
+        }
+      },
+      fail() {
+        wx.openSetting({
+          success: res => {
+            console.log(res);
           },
         });
       },
@@ -63,6 +100,7 @@ Page({
   // 添加手机通讯录联系人。
   addPhoneContact() {
     let userInfo = this.data.userInfo;
+    let that = this;
     wx.addPhoneContact({
       // nickName: "昵称",
       // lastName: "姓",
@@ -85,12 +123,7 @@ Page({
       },
       fail: function () {
         console.log("fail");
-        wx.showToast({
-          title: "保存失败，请从新保存",
-          icon: "none",
-          mask: true,
-        });
-        this.getphone();
+        that.getphone();
       },
     });
   },
@@ -100,11 +133,21 @@ Page({
       success: res => {
         console.log(res);
         if (res.authSetting["scope.addPhoneContact"]) {
-          this.addPhoneContact();
+          // this.addPhoneContact();
+          return true
         } else {
-          wx.openSetting({
-            success: res => {
-              console.log(res);
+          wx.showModal({
+            title: "提示",
+            content: "请授权获取通讯录",
+            success: function (res) {
+              if (res.confirm == false) {
+                return false;
+              }
+              wx.openSetting({
+                success: res => {
+                  console.log(res);
+                },
+              });
             },
           });
         }

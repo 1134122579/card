@@ -31,29 +31,26 @@ Page({
     console.log(e, windowHeight, width, height);
   },
   getPhone(e) {
-    storage.setToken("2545ec1d0fd76d824bf48a93237c394dd059e2a29c0052241e96f38bfe988b5090d3d00b4cb059083116ba359f9de86c")
-    wx.navigateTo({
-      url: '/pages/visitingCard/visitingCard',
-    })
-    return
+    console.log(e);
+    let { code, encryptedData, iv } = e.detail;
     var that = this;
     //用户授权
-    wx.login({
-      success: function (res) {
-        Api.wx_mini_login({
-          code: res.code,
-        }).then(res => {});
-      },
+    Api.wx_mini_login({ code, encryptedData, iv }).then(res => {
+      console.log(res);
+      storage.setToken(res.token);
+      wx.navigateTo({
+        url: "/pages/visitingCard/visitingCard",
+      });
     });
   },
-  loading(){
+  loading() {
     wx.showLoading({
-      title: '加载中',
-    })
+      title: "加载中",
+    });
     setTimeout(() => {
       wx.hideLoading({
-        success: (res) => {},
-      })
+        success: res => {},
+      });
     }, 1000);
   },
 
@@ -78,7 +75,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  this.loading()
+    this.loading();
   },
 
   /**

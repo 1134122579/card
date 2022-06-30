@@ -6,28 +6,28 @@ overflow: hidden;
   height: 100%;
   background: #F1F4F9;
   box-sizing: border-box;
-  padding-top: 20rpx;
   overflow-y: auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
 .card {
-  width: 638rpx;
+  width: 78%;
   background: #fff;
   margin: 0rpx auto;
-  /* box-shadow: 10rpx 10rpx 12rpx #D6DADC; */
-  border-radius: 10rpx;
+  box-shadow: 0 0 24rpx #D6DADC;
+  border-radius: 14rpx;
   font-size: 30rpx;
   box-sizing: border-box;
-  padding: 30rpx 20rpx;
+  padding: 54rpx 20rpx 44rpx;
   margin-bottom: 50rpx;
   overflow: hidden;
+  margin-top: 60rpx;
 }
 .card-item{
   display: flex;
-  margin-bottom: 20rpx;
+  justify-content: space-around;
 }
 .card-left{
   width: 50%;
@@ -41,24 +41,29 @@ overflow: hidden;
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 0rpx 20rpx 20rpx 10rpx;
+  padding: 0rpx 20rpx 20rpx 20rpx;
 }
 .name{
-  font-size: 49rpx;
+  font-size: 40rpx;
+  margin-top: -40rpx;
+  font-weight: 700;
 }
 .dep{
-  color: #666666;
-  padding: 60rpx 0;
-  font-size: 33rpx;
-  text-align: center;
+  color: #414040;
+  padding: 110rpx 0;
+  font-size: 26rpx;
+  text-align: left;
+  align-items: flex-start;
+  line-height: 1;
+}
+.desctext{
+  padding-bottom: 14rpx;
 }
 .header-image{
-    /* border-radius: 50%; */
-    width: 346rpx;
-    height: 346rpx;
+    width: 220rpx;
     display: block;
 }
 
@@ -71,24 +76,24 @@ overflow: hidden;
 .userinfo{
   color: #666666;
   font-size: 24rpx;
-  padding: 20rpx 10rpx;
 }
 .info-li{
-    margin-top: 20rpx;
+    margin-top: 14rpx;
     margin-left: 10rpx;
     white-space: nowrap;
 } 
 .block-button{
   width: 640rpx;
+  width: 80%;
   margin: 0 auto;
   margin-top: 30rpx;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
 }
 .button-li{
   text-align: center;
-  font-size: 30rpx;
+  font-size: 26rpx;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -97,10 +102,10 @@ overflow: hidden;
 
 }
 .wxlogo{
-  width: 90rpx;
-  height: 90rpx;
+  width: 70rpx;
+  height: 70rpx;
   display: block;
-  margin-bottom: 10rpx;
+  margin-bottom: 16rpx;
 }
 .tag{
   text-align: center;
@@ -108,4 +113,12 @@ overflow: hidden;
   margin-bottom: 10rpx;
   font-size: 24rpx;
   color: #666666;
+}
+.header-image-logo{
+  width: 210rpx;
+}
+.codeimage{
+  width: 90rpx;
+  height: 90rpx;
+
 }

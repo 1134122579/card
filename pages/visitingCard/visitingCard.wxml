@@ -3,7 +3,7 @@
     <!-- 头像 -->
     <view class="card-item">
       <view class="card-left">
-        <image class="header-image" mode="widthFix" src="/images/logo.png"></image>
+        <image class="header-image header-image-logo" mode="widthFix" src="/images/logo.png"></image>
       </view>
       <view class="card-right name">
         {{userInfo.name}}
@@ -15,8 +15,8 @@
         <image class="header-image" mode="widthFix" src="/images/gsmc.png"></image>
       </view>
       <view class="card-right ">
-        <view>
-          {{userInfo.department}}
+        <view class="desctext">
+          {{userInfo.department}} 
         </view>
         <view>
           {{userInfo.position}}
@@ -55,22 +55,22 @@
       <view class="button-li">
         <image class="wxlogo" src="/images/wx.png"></image>
         <view>
-          微信分享
+          分享微信好友
         </view>
       </view>
       <button open-type="share"></button>
     </label>
     <view class="button-li" bindtap="oncode">
-      <image class="wxlogo" src="/images/code.png"></image>
+      <image class="wxlogo codeimage" src="/images/code.png"></image>
       <view>
-        微信分享
+        扫一扫查看
       </view>
     </view>
     <label for="">
       <view class="button-li" >
       <image class="wxlogo" src="/images/lxfs.png"></image>
       <view>
-        保存通讯录
+        保存至通讯录
       </view>
     </view>
     <button bindtap="addPhoneContact"></button>

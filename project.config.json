@@ -35,7 +35,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": true,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": true,
     "packNpmRelationList": [
@@ -53,7 +53,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.24.6",
-  "appid": "wxd3966f233680ece2",
+  "appid": "wx0a7c725b5be08706",
   "projectname": "名片",
   "debugOptions": {
     "hidedInDevtools": []
