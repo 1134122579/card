@@ -1,8 +1,9 @@
 /* pages/visitingCard/visitingCard.wxss */
-page{
-overflow: hidden;
+page {
+  overflow: hidden;
 }
-.cardpage{  
+
+.cardpage {
   height: 100%;
   background: #F1F4F9;
   box-sizing: border-box;
@@ -12,6 +13,7 @@ overflow: hidden;
   align-items: center;
   flex-direction: column;
 }
+
 .card {
   width: 78%;
   background: #fff;
@@ -20,69 +22,86 @@ overflow: hidden;
   border-radius: 14rpx;
   font-size: 30rpx;
   box-sizing: border-box;
-  padding: 54rpx 20rpx 44rpx;
+  padding: 54rpx 20rpx 36rpx;
   margin-bottom: 50rpx;
-  overflow: hidden;
   margin-top: 60rpx;
-}
-.card-item{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-item {
+  display: flex;
+  width: 100%;
   justify-content: space-around;
 }
-.card-left{
-  width: 50%;
+
+.card-left {
+  width: 57%;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 0rpx 10rpx 20rpx 20rpx;
 }
-.card-right{
-  width: 50%;
+
+.card-right {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 0rpx 20rpx 20rpx 20rpx;
+  padding: 0rpx 0 20rpx 20rpx;
+  box-sizing: border-box;
 }
-.name{
-  font-size: 40rpx;
+
+.name {
+  font-size: 44rpx;
   margin-top: -40rpx;
   font-weight: 700;
 }
-.dep{
+
+.dep {
   color: #414040;
-  padding: 110rpx 0;
-  font-size: 26rpx;
-  text-align: left;
+  padding: 160rpx 0 110rpx;
+  /* padding-left: 16rpx; */
+  font-size: 30rpx;
+  text-align: center;
   align-items: flex-start;
-  line-height: 1;
-}
-.desctext{
-  padding-bottom: 14rpx;
-}
-.header-image{
-    width: 220rpx;
-    display: block;
 }
 
-.desc{
+.dep .card-left {
+  padding-left: 20rpx;
+}
+
+.header-image {
+  width: 290rpx;
+  display: block;
+}
+
+.desc {
   align-items: flex-start;
 }
 
 
 /* 用户信息 */
-.userinfo{
+.userinfo {
   color: #666666;
   font-size: 24rpx;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 20rpx;
 }
-.info-li{
-    margin-top: 14rpx;
-    margin-left: 10rpx;
-    white-space: nowrap;
-} 
-.block-button{
+
+.info-li {
+  margin-top: 14rpx;
+  white-space: nowrap;
+}
+
+.block-button {
   width: 640rpx;
   width: 80%;
   margin: 0 auto;
@@ -91,34 +110,53 @@ overflow: hidden;
   justify-content: space-around;
   align-items: flex-end;
 }
-.button-li{
+
+.button-li {
   text-align: center;
   font-size: 26rpx;
   text-align: center;
+  height: 150rpx;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-
 }
-.wxlogo{
+
+.wxlogo {
   width: 70rpx;
   height: 70rpx;
   display: block;
   margin-bottom: 16rpx;
+  flex-shrink: 0;
 }
-.tag{
+
+.tag {
   text-align: center;
   padding: 16rpx;
   margin-bottom: 10rpx;
   font-size: 24rpx;
   color: #666666;
 }
-.header-image-logo{
+
+.header-image-logo {
   width: 210rpx;
 }
-.codeimage{
+
+.codeimage {
   width: 90rpx;
   height: 90rpx;
 
+
+}
+
+/* .desctext {
+  margin-top: -5rpx;
+  text-align: left;
+  box-sizing: border-box;
+} */
+.desctext-f{
+  margin-top: -5rpx;
+}
+.desctext-1{
+  text-align: left;
 }

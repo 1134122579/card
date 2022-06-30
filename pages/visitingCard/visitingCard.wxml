@@ -15,12 +15,14 @@
         <image class="header-image" mode="widthFix" src="/images/gsmc.png"></image>
       </view>
       <view class="card-right ">
-        <view class="desctext">
-          {{userInfo.department}} 
+      <view class="desctext-f" >
+        <view class="desctext-1">
+          {{userInfo.department}}
         </view>
-        <view>
+        <view class="desctext" style="text-align: center;">
           {{userInfo.position}}
         </view>
+      </view>
       </view>
     </view>
     <!-- 用户信息 -->
@@ -61,7 +63,7 @@
       <button open-type="share"></button>
     </label>
     <view class="button-li" bindtap="oncode">
-      <image class="wxlogo codeimage" src="/images/code.png"></image>
+      <image class="wxlogo  codeimage" src="{{userInfo.mini_code}}"></image>
       <view>
         扫一扫查看
       </view>
@@ -79,7 +81,7 @@
   </view>
 </view>
 
-<van-popup show="{{ show }}"  custom-style="border-radius:20rpx" bind:close="onClose">
+<van-popup show="{{ show }}"  custom-style="border-radius:20rpx;background:#fff;" bind:close="onClose">
   <view class="" >
     <!-- <image mode="widthFix" src="/images/logo.png" bindtap="bindseaveimage"></image> -->
     <image mode="widthFix" style="display: block; padding:0 20rpx;" src="{{userInfo.mini_code}}" catchlongpress="bindseaveimage"></image>
