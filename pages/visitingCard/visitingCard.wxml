@@ -15,14 +15,18 @@
         <image class="header-image" mode="widthFix" src="/images/gsmc.png"></image>
       </view>
       <view class="card-right ">
-      <view class="desctext-f" >
-        <view class="desctext-1">
-          {{userInfo.department}}
+        <view class="desctext-f">
+          <view class="desctext-1">
+            {{userInfo.department}}
+          </view>
+          <view class="desctext" wx:for="{{userInfo.position}}" style="text-align: center;" wx:key="index">
+            {{item}}
+          </view>
+          <!-- <view class="desctext" style="text-align: center;">
+            {{userInfo.position}}
+          </view> -->
+          <!-- <rich-text class="desctext" style="text-align: center;" nodes="{{userInfo.position}}" space="emsp"></rich-text> -->
         </view>
-        <view class="desctext" style="text-align: center;">
-          {{userInfo.position}}
-        </view>
-      </view>
       </view>
     </view>
     <!-- 用户信息 -->
@@ -36,20 +40,21 @@
       <view class="info-li">
         手机：{{userInfo.mobile}}
       </view>
-      <view class="info-li">
+      <!-- <view class="info-li">
         邮箱：{{userInfo.email}}
+      </view> -->
+      <view class="info-li">
+        热线电话：{{userInfo.service_phone}}
+      </view>
+      <view class="info-li">
+        网址：{{userInfo.website}}
       </view>
       <view class="info-li">
         地址：{{userInfo.address}}
       </view>
-      <view class="flexastart">
-        <view class="info-li">
-          热线电话：{{userInfo.service_phone}}
-        </view>
-        <view class="info-li">
-          网址：{{userInfo.website}}
-        </view>
-      </view>
+
+      <!-- <view class="flexastart">
+      </view> -->
     </view>
   </view>
   <view class="block-button">
@@ -63,29 +68,28 @@
       <button open-type="share"></button>
     </label>
     <view class="button-li" bindtap="oncode">
-      <image class="wxlogo  codeimage" src="{{userInfo.mini_code}}"></image>
+      <image class="wxlogo  codeimage" src="/images/code.png"></image>
       <view>
         扫一扫查看
       </view>
     </view>
     <label for="">
-      <view class="button-li" >
-      <image class="wxlogo" src="/images/lxfs.png"></image>
-      <view>
-        保存至通讯录
+      <view class="button-li">
+        <image class="wxlogo" src="/images/lxfs.png"></image>
+        <view>
+          保存至通讯录
+        </view>
       </view>
-    </view>
-    <button bindtap="addPhoneContact"></button>
+      <button bindtap="addPhoneContact"></button>
     </label>
- 
+
   </view>
 </view>
 
-<van-popup show="{{ show }}"  custom-style="border-radius:20rpx;background:#fff;" bind:close="onClose">
-  <view class="" >
+<van-popup show="{{ show }}" custom-style="border-radius:20rpx;background:#fff;" bind:close="onClose">
+  <view class="">
     <!-- <image mode="widthFix" src="/images/logo.png" bindtap="bindseaveimage"></image> -->
     <image mode="widthFix" style="display: block; padding:0 20rpx;" src="{{userInfo.mini_code}}" catchlongpress="bindseaveimage"></image>
-    <view class="tag" > 长按图片保存</view>
-  </view> 
+    <view class="tag"> 长按图片保存</view>
+  </view>
 </van-popup>
-

@@ -163,7 +163,7 @@ Page({
   },
   getUserInfo() {
     Api.getUserInfo().then(res => {
-      console.log(res);
+      res.position=res.position.split('-')
       this.setData({
         userInfo: res,
       });
@@ -172,19 +172,23 @@ Page({
   getCardInfo(id) {
     Api.getCardInfo({ id }).then(res => {
       console.log(res);
+      console.log(res.position.split('-'));
+      res.position=res.position.split('-')
       this.setData({
         userInfo: res,
       });
     });
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(options);
-    if (options?.id) {
-      this.getCardInfo(options.id);
+    let you_id= App.globalData.you_id
+    if (options?.id||you_id) {
+      this.getCardInfo(options.id||you_id);
     } else {
       this.getUserInfo();
     }

@@ -1,4 +1,0 @@
-
-<view class="custom " style="height:{{navHeight}}px">
-  <van-icon name="arrow-left" size="28px" bind:click="onback" />
-</view>

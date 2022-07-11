@@ -12,7 +12,6 @@
   "navigateToMiniProgramAppIdList": [
     "wx23f0e224e37e69bd"
   ],
-
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
     "van-popup": "@vant/weapp/popup/index"

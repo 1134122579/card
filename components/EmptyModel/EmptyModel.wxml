@@ -1,4 +1,0 @@
-<view class="empty flexcolumn">
-  <image class="emptyUrl"  src="../../images/emty_1.png"></image>
-    <text class="emty_text">{{description}}</text>
-</view>

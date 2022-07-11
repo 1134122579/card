@@ -1,9 +1,7 @@
 // app.js
 import Api from "./api/index";
 import storage from "./utils/cache";
-import {
-  Storage
-} from "./utils/storage";
+import { Storage } from "./utils/storage";
 const $Storage = new Storage();
 
 App({
@@ -75,7 +73,7 @@ App({
   // },
   // 获取用户信息
   getUserinfoFn(cb) {
-    Api.getUserInfo().then((res) => {
+    Api.getUserInfo().then(res => {
       this.globalData.userInfo = res;
       storage.setUserInfo(res);
       cb();
@@ -84,16 +82,45 @@ App({
   // 校验token是否过期
   isTimetoken() {
     let that = this;
-    storage.getToken((token) => {
+    storage.getToken(token => {
       Api.ckeckToken({
         token,
-      }).then((res) => {
-        console.log("isTimetoken", res);
+      }).then(res => {
         that.globalData.is_login = !res.code;
       });
     });
   },
-  onLaunch() {
+  // 获取小程序二维码参数  
+  getScene: function(scene = "") {
+    if (scene == "") return {}
+    let res = {}
+    let params = decodeURIComponent(scene).split("&")
+    params.forEach(item => {
+      let pram = item.split("=")
+      res[pram[0]] = pram[1]
+    })
+    return res
+  },
+  // 获取小程序二维码参数  
+  getwxcode() {
+    // 小程序扫码场景值
+    const qrcodeScenes = [1047, 1048, 1049,1011];
+    const { query, scene: pageScene } = wx.getLaunchOptionsSync();
+    let optionsQuery = query;
+    const enterOptionsQuery = wx.getEnterOptionsSync().query;
+    // 只有二次扫码的情况才会使用 wx.getEnterOptionsSync() 获取参数
+    if (qrcodeScenes.includes(pageScene) && !enterOptionsQuery) {
+      optionsQuery = wx.getEnterOptionsSync().query;
+    }
+    console.log(optionsQuery,optionsQuery.id,this.getScene(optionsQuery.scene).id)
+    this.globalData.you_id=optionsQuery.id||this.getScene(optionsQuery.scene).id
+  },
+  onLaunch(query) {
+    this.getwxcode()
+    // const obj = wx.getLaunchOptionsSync()
+    // console.log(obj.query,query,'obj')
+    // const inviteCode = obj.query.id || query.query.id
+    // this.globalData.you_id=inviteCode
     // 展示本地存储能力
     let that = this;
     const logs = wx.getStorageSync("logs") || [];
@@ -158,14 +185,14 @@ App({
           });
         }
       });
-    } else {}
+    } else {
+    }
   },
   onShow() {
     // 获取小程序顶部参数
     try {
       let menuButtonObject = wx.getMenuButtonBoundingClientRect();
-      console.log("获取自定义顶部高度相关参数", menuButtonObject);
-      if (menuButtonObject.width==0) {
+      if (menuButtonObject.width == 0) {
         menuButtonObject = {
           bottom: 80,
           height: 32,
@@ -173,10 +200,9 @@ App({
           right: 368,
           top: 48,
           width: 87,
-        }
+        };
       }
       let res = wx.getSystemInfoSync();
-      console.log(res)
       let statusBarHeight = res.statusBarHeight,
         navTop = menuButtonObject.top, //胶囊按钮与顶部的距离
         // navHeight =
@@ -184,23 +210,24 @@ App({
         //   menuButtonObject.height +
         //   (menuButtonObject.top - statusBarHeight) * 2; //导航高度
         navHeight =
-        Number(menuButtonObject.top) + Number(menuButtonObject.height) + 4;
+          Number(menuButtonObject.top) + Number(menuButtonObject.height) + 4;
       this.globalData.menuButtonObject = menuButtonObject;
       this.globalData.navHeight = navHeight;
       this.globalData.navTop = navTop;
       this.globalData.windowHeight = res.windowHeight;
-      console.log(
-        "获取自定义顶部高度相关参数====",
-        navHeight,
-        statusBarHeight,
-        navTop
-      );
+      // console.log(
+      //   "获取自定义顶部高度相关参数====",
+      //   navHeight,
+      //   statusBarHeight,
+      //   navTop
+      // );
     } catch (err) {
       console.error("获取小程序顶部参数", err);
     }
     this.globalData.statusBarHeight = wx.getSystemInfoSync().statusBarHeight;
   },
   globalData: {
+    you_id:"",
     menuButtonObject: {},
     is_location: false,
     is_login: true,
